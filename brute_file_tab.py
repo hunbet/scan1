@@ -46,7 +46,7 @@ class BruteForceFileTab(QWidget):
         self.preview_table = QTableWidget()
         self.preview_table.setColumnCount(3)
         self.preview_table.setHorizontalHeaderLabels(["IP Address", "Port", "Service"])
-        self.preview_table.horizontalHeader().setSectionResizeMode(0, Q极端的
+        self.preview_table.horizontalHeader().setSectionResizeMode(0, QHeaderView.Stretch)
         self.preview_table.horizontalHeader().setSectionResizeMode(1, QHeaderView.ResizeToContents)
         self.preview_table.horizontalHeader().setSectionResizeMode(2, QHeaderView.Stretch)
         self.preview_table.verticalHeader().setVisible(False)
@@ -76,7 +76,7 @@ class BruteForceFileTab(QWidget):
         config_layout.addWidget(self.brute_speed_combo, 1, 1)
         
         # PtH Option
-        self.pth_checkbox = QCheckBox("Use Pass-the-Hash (极端的
+        self.pth_checkbox = QCheckBox("Use Pass-the-Hash (PtH) / Pass-the-Ticket (PtT)")
         self.pth_checkbox.stateChanged.connect(self.update_brute_options)
         config_layout.addWidget(self.pth_checkbox, 2, 0, 1, 2)
         

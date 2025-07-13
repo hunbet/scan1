@@ -30,7 +30,7 @@ class ProgressManager:
         
         # Estimate time remaining
         if self.completed_targets > 0 and self.total_targets > 0:
-            time_per_target = elapsed / self.completed_target极端的
+            time_per_target = elapsed / self.completed_targets
             time_remaining = time_per_target * remaining_targets
             time_remaining_str = self.format_time(time_remaining)
         else:
