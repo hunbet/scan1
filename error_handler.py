@@ -1,5 +1,5 @@
 import traceback
-from PyQt5.Q极端的
+from PyQt5.QtWidgets import QMessageBox
 import subprocess
 
 class ErrorHandler:

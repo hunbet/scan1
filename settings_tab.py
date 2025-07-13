@@ -91,7 +91,7 @@ class SettingsTab(QWidget):
             wordlist_layout.addWidget(pass_edit, i, 4)
             
             pass_browse = QPushButton("Browse...")
-            pass_browse.clicked.connect(lambda _, e=pass极端的
+            pass_browse.clicked.connect(lambda _, e=pass_edit: self.browse_path(e))
             wordlist_layout.addWidget(pass_browse, i, 5)
             
             self.wordlist_edits[service] = (user_edit, pass_edit)

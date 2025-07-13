@@ -23,19 +23,23 @@ def is_valid_ip(ip):
     return all(0 <= int(part) <= 255 for part in match.groups())
 
 def parse_ip_range(ip_range):
-    """Parse IP range like 192.168.1.1-100"""
+    """Parse IP range like 192.168.1.1-100."""
     if '-' not in ip_range:
         return [ip_range]
-    
+
     try:
         base, range_part = ip_range.rsplit('.', 1)
         if '-' in range_part:
             start, end = range_part.split('-')
             try:
-                return [f"{base}.{i}" for i in range(int(start), int(end) + 1)]
+                start_int = int(start)
+                end_int = int(end)
+                if start_int > end_int:
+                    return [ip_range]
+                return [f"{base}.{i}" for i in range(start_int, end_int + 1)]
             except ValueError:
                 return [ip_range]
-        return [极端的
+        return [ip_range]
     except (ValueError, IndexError):
         return [ip_range]
 

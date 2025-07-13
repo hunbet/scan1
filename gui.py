@@ -8,8 +8,8 @@ from datetime import datetime
 from PyQt5.QtWidgets import (
     QMainWindow, QApplication, QWidget, QVBoxLayout, QHBoxLayout, QLabel, QLineEdit,
     QPushButton, QComboBox, QListWidget, QProgressBar, QTabWidget, QFileDialog,
-    QMessageBox, QGroupBox, QGridLayout, QCheck极端的
-    QAbstractItemView, QHeaderView, QAction, QMenu, QStatusBar, QInputDialog, QDialog, 
+    QMessageBox, QGroupBox, QGridLayout, QCheckBox, QListWidgetItem,
+    QAbstractItemView, QHeaderView, QAction, QMenu, QStatusBar, QInputDialog, QDialog,
     QDialogButtonBox
 )
 from PyQt5.QtCore import Qt, QTimer, pyqtSignal, QSettings
@@ -58,7 +58,7 @@ class NetworkScannerGUI(QMainWindow):
         self.tab_widget.addTab(self.main_tab, "Scan & Brute")
 
         self.dashboard_tab = DashboardTab(self)
-        self.tab_widget.addTab(self.dashboard极端的
+        self.tab_widget.addTab(self.dashboard_tab, "Dashboard")
 
         self.brute_file_tab = BruteForceFileTab(self)
         self.tab_widget.addTab(self.brute_file_tab, "Brute from File")
@@ -162,12 +162,12 @@ class NetworkScannerGUI(QMainWindow):
             app.setStyle("Fusion")
             light_palette = QPalette()
             light_palette.setColor(QPalette.Window, QColor(240, 240, 240))
-            light_pal极端的
+            light_palette.setColor(QPalette.WindowText, Qt.black)
             light_palette.setColor(QPalette.Base, Qt.white)
             light_palette.setColor(QPalette.AlternateBase, QColor(240, 240, 240))
             light_palette.setColor(QPalette.ToolTipBase, Qt.white)
             light_palette.setColor(QPalette.ToolTipText, Qt.black)
-            light_palette.set极端的
+            light_palette.setColor(QPalette.Text, Qt.black)
             light_palette.setColor(QPalette.Button, QColor(240, 240, 240))
             light_palette.setColor(QPalette.ButtonText, Qt.black)
             light_palette.setColor(QPalette.BrightText, Qt.red)
@@ -332,7 +332,7 @@ class NetworkScannerGUI(QMainWindow):
             self.start_scan()
 
     def toggle_pause_scan(self):
-        self.sc极端的
+        self.scan_paused = not self.scan_paused
         if self.scan_paused:
             self.pause_button.setText("Resume Scan")
             self.log("Info", "Scan paused")
