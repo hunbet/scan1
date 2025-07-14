@@ -233,4 +233,4 @@ class BruteForceFileTab(QWidget):
             self.execute_button.setEnabled(True)
             self.pause_button.setEnabled(False)
             self.stop_button.setEnabled(False)
-            self.log("Info", "Brute-force stopped by user")
+        self.log("Info", "Brute-force stopped by user")
